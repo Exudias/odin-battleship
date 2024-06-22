@@ -1,7 +1,5 @@
 const Ship = require("./ship");
 
-it("Ship class exists", () => expect(Ship).toBeTruthy());
-
 it("Ship length is correct after constructing", () => {
     const ship = new Ship(5);
 
