@@ -1,5 +1,5 @@
-const Gameboard = require("./gameboard");
-const Ship = require("./ship");
+const Gameboard = require("../scripts/gameboard");
+const Ship = require("../scripts/ship");
 
 it("Gameboard should place ships into an array", () => {
     const gameboard = new Gameboard();
