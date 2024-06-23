@@ -1,4 +1,95 @@
-body
-{
-    background-color: yellow;
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.main-container, .body-container {
+    width: 100%;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+
+.body-container {
+    height: 100%;
+
+    background-color: blue;
+}
+
+.header-container {
+    height: 64px;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 48px;
+
+    background-color: red;
+}
+
+.main-container {
+    height: calc(100% - 64px);
+}
+
+.controls-container {
+    width: 100%;
+    
+    display: flex;
+    justify-content: center;
+
+    background-color: green;
+}
+
+.control-button {
+    width: 128px;
+    height: 64px;
+
+    font-size: 24px;
+}
+
+.game-container {
+    width: 100%;
+    flex: 1;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.gameboard-container {
+    width: 50%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.gameboard-header {
+    height: 64px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: purple;
+
+    font-size: 32px;
+}
+
+.gameboard {
+    flex: 1;
+
+    padding: 10px;
+
+    display: grid;
+    gap: 4px;
+    grid-template-columns: repeat(10, auto);
+    grid-template-rows: repeat(10, auto);
+}
+
+.gameboard > div {
+    background-color: red;
 }
