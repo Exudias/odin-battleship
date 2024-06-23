@@ -1,5 +1,5 @@
-const Player = require("../scripts/player");
-const Gameboard = require("../scripts/gameboard");
+import {Player} from "../scripts/player";
+import {Gameboard} from "../scripts/gameboard";
 
 it("Player should be able to be a human", () => {
     const p = new Player(true);

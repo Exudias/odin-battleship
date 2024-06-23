@@ -1,4 +1,4 @@
-const Ship = require("../scripts/ship");
+import {Ship} from "../scripts/ship";
 
 it("Ship length is correct after constructing", () => {
     const ship = new Ship(5);
