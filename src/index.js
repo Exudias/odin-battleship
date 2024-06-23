@@ -1,9 +1,11 @@
 import "./styles.css";
 import {Game} from "./scripts/game";
 import {Ship} from "./scripts/ship";
+import { DomManager } from "./scripts/dommanager";
 
 (() => {
     const game = beginGame();
+    // TODO: Populate DOM boards with 10x10 divs, store them somewhere appropriate 
     populateBoard(game.p1.board);
     populateBoard(game.p2.board);
 })();
