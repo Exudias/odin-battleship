@@ -6,6 +6,11 @@ class DomManager
         parent.appendChild(newDiv);
         return newDiv;
     }
+
+    static findElementById(id)
+    {
+        return document.getElementById(id);
+    }
 }
 
 export {DomManager};

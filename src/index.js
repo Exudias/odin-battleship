@@ -5,7 +5,13 @@ import { DomManager } from "./scripts/dommanager";
 
 (() => {
     const game = beginGame();
-    // TODO: Populate DOM boards with 10x10 divs, store them somewhere appropriate 
+    
+    const board1 = DomManager.findElementById("gameboard-1");
+    const board2 = DomManager.findElementById("gameboard-2");
+
+    populateDOMBoard(board1);
+    populateDOMBoard(board2);
+
     populateBoard(game.p1.board);
     populateBoard(game.p2.board);
 })();
@@ -14,6 +20,17 @@ function beginGame()
 {
     const game = new Game();
     return game;
+}
+
+function populateDOMBoard(board)
+{
+    for (let i = 0; i < 10; i++)
+    {
+        for (let j = 0; j < 10; j++)
+        {
+            DomManager.createAndAddDiv(board);
+        }
+    }
 }
 
 function populateBoard(board)
