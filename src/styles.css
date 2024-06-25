@@ -106,3 +106,7 @@ html, body {
 .gameboard > div.miss {
     background-color: red;
 }
+
+.hidden {
+    display: none;
+}

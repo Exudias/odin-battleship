@@ -14,7 +14,22 @@ class DomManager
         return document.getElementById(id);
     }
 
-    static renderBoardOnGrid(board, grid)
+    static setDivText(div, text)
+    {
+        div.innerText = text;
+    }
+
+    static hideElement(element)
+    {
+        element.classList.add("hidden");
+    }
+
+    static showElement(element)
+    {
+        element.classList.remove("hidden");
+    }
+
+    static renderBoardOnGrid(board, grid, isEnemy)
     {
         const boardGrid = board.grid;
         const boardSize = boardGrid.length;
@@ -27,7 +42,7 @@ class DomManager
                 {
                     grid.children[gridIndex].className = "";
                 }
-                else if (boardGrid[i][j] instanceof Ship)
+                else if (boardGrid[i][j] instanceof Ship && !isEnemy)
                 {
                     grid.children[gridIndex].className = "ship";
                 }

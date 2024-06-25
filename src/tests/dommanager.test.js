@@ -51,6 +51,29 @@ it("renderBoardOnGrid should take a board state and a grid div and render the st
     expect(dummyGrid.children[88].classList).toContain("miss");
 });
 
+it("renderBoardOnGrid should not show enemy ships", () => {
+    const gameboard = new Gameboard();
+    const ship = new Ship(2);
+    gameboard.place(ship, [0, 0], false);
+
+    const dummyGrid = document.createElement("div");
+    for (let i = 0; i < 10; i++)
+    {
+        for (let j = 0; j < 10; j++)
+        {
+            DomManager.createAndAddDiv(dummyGrid);
+        }
+    }
+
+    gameboard.receiveAttack([8, 8]);
+    gameboard.receiveAttack([0, 1]);
+
+    DomManager.renderBoardOnGrid(gameboard, dummyGrid, true);
+    expect(dummyGrid.children[0].classList).not.toContain("ship");
+    expect(dummyGrid.children[1].classList).toContain("hit");
+    expect(dummyGrid.children[88].classList).toContain("miss");
+});
+
 it("removeAllChildren should remove a node's children", () => {
     const dummyParent = document.createElement("div");
     const newDiv = DomManager.createAndAddDiv(dummyParent);
