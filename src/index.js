@@ -14,6 +14,15 @@ import { DomManager } from "./scripts/dommanager";
 
     populateBoard(game.p1.board);
     populateBoard(game.p2.board);
+
+    DomManager.renderBoardOnGrid(game.p1.board, board1);
+    DomManager.renderBoardOnGrid(game.p2.board, board2);
+
+    game.p1.board.receiveAttack([0, 0]);
+    game.p2.board.receiveAttack([6, 0]);
+
+    DomManager.renderBoardOnGrid(game.p1.board, board1);
+    DomManager.renderBoardOnGrid(game.p2.board, board2);
 })();
 
 function beginGame()

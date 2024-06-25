@@ -91,5 +91,18 @@ html, body {
 }
 
 .gameboard > div {
+    border-radius: 4px;
+    background-color: white;
+}
+
+.gameboard > div.ship {
+    background-color: black;
+}
+
+.gameboard > div.hit {
+    background-color: green;
+}
+
+.gameboard > div.miss {
     background-color: red;
 }
