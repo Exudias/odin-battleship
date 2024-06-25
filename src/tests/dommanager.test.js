@@ -50,3 +50,11 @@ it("renderBoardOnGrid should take a board state and a grid div and render the st
     expect(dummyGrid.children[1].classList).toContain("hit");
     expect(dummyGrid.children[88].classList).toContain("miss");
 });
+
+it("removeAllChildren should remove a node's children", () => {
+    const dummyParent = document.createElement("div");
+    const newDiv = DomManager.createAndAddDiv(dummyParent);
+    DomManager.removeAllChildren(dummyParent);
+
+    expect(dummyParent.children.length).toBe(0);
+});

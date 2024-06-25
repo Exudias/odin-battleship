@@ -42,6 +42,11 @@ class DomManager
             }
         }
     }
+
+    static removeAllChildren(node)
+    {
+        node.innerHTML = "";
+    }
 }
 
 export {DomManager};
