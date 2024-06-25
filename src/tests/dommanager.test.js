@@ -46,7 +46,7 @@ it("renderBoardOnGrid should take a board state and a grid div and render the st
     gameboard.receiveAttack([0, 1]);
 
     DomManager.renderBoardOnGrid(gameboard, dummyGrid);
-    expect(dummyGrid.children[0].classList).toContain("ship");
+    expect(dummyGrid.children[0].classList).toContain("ship-2");
     expect(dummyGrid.children[1].classList).toContain("hit");
     expect(dummyGrid.children[88].classList).toContain("miss");
 });
@@ -69,7 +69,7 @@ it("renderBoardOnGrid should not show enemy ships", () => {
     gameboard.receiveAttack([0, 1]);
 
     DomManager.renderBoardOnGrid(gameboard, dummyGrid, true);
-    expect(dummyGrid.children[0].classList).not.toContain("ship");
+    expect(dummyGrid.children[0].classList).not.toContain("ship-2");
     expect(dummyGrid.children[1].classList).toContain("hit");
     expect(dummyGrid.children[88].classList).toContain("miss");
 });

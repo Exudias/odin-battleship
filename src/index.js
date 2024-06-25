@@ -10,15 +10,25 @@ const verticalButton = DomManager.findElementById("button-vertical");
 const horizontalButton = DomManager.findElementById("button-horizontal");
 const headerContainer = DomManager.findElementById("header-container");
 
-let placingVertical = false;
+let placingVertical = true;
 let gameOver = false;
 
 const SHIPS = [5, 4, 3, 3, 2];
 
 (() => {
     resetButton.onclick = function(){resetGame()};
-    verticalButton.onclick = function(){placingVertical = true};
-    horizontalButton.onclick = function(){placingVertical = false};
+    verticalButton.onclick = function()
+    {
+        DomManager.hideElement(verticalButton);
+        DomManager.showElement(horizontalButton);
+        placingVertical = true;
+    };
+    horizontalButton.onclick = function()
+    {
+        DomManager.showElement(verticalButton);
+        DomManager.hideElement(horizontalButton);
+        placingVertical = false;
+    };
 
     const game = beginGame();
     setUpDOM(game);
@@ -55,8 +65,9 @@ function resetDOM()
 {
     DomManager.removeAllChildren(board1);
     DomManager.removeAllChildren(board2);
-    DomManager.showElement(verticalButton);
+    DomManager.hideElement(verticalButton);
     DomManager.showElement(horizontalButton);
+    placingVertical = true;
 }
 
 function checkWin(game)
@@ -75,9 +86,9 @@ function gameEnd(win)
 {
     gameOver = true;
     if (win)
-        console.log("WINNER!");
+        DomManager.setDivText(headerContainer, `You win!`);
     else
-        console.log("LOSER!");
+        DomManager.setDivText(headerContainer, `You lose!`);
 }
 
 function populateDOMBoard(board, game, isEnemy)
@@ -141,9 +152,14 @@ function populateDOMBoard(board, game, isEnemy)
 
 function populateBoard(board)
 {
-    board.place(new Ship(5), [0, 0], true);
-    board.place(new Ship(4), [0, 1], true);
-    board.place(new Ship(3), [0, 2], true);
-    board.place(new Ship(3), [0, 3], true);
-    board.place(new Ship(2), [0, 4], true);
+    let placed = 0;
+    let boardSize = board.grid.length;
+    while (placed < SHIPS.length)
+    {
+        let ship = new Ship(SHIPS[placed]);
+        let x = Math.floor(Math.random() * boardSize);
+        let y = Math.floor(Math.random() * boardSize);
+        let vert = Math.random() >= 0.5;
+        if (board.place(ship, [y, x], vert)) placed++;
+    }
 }

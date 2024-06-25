@@ -1,7 +1,31 @@
+:root {
+    --color-foreground-dark: #1d4ed8;
+    --color-foreground: #3b82f6;
+    --color-foreground-light: #60a5fa;
+    --color-background: #172554;
+    --color-highlight: #93c5fd;
+    --color-text: #bfdbfe;
+}
+
 html, body {
     height: 100%;
     margin: 0;
     padding: 0;
+}
+
+body {
+    font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
 }
 
 .main-container, .body-container {
@@ -16,7 +40,7 @@ html, body {
 .body-container {
     height: 100%;
 
-    background-color: blue;
+    background-color: var(--color-background);
 }
 
 .header-container {
@@ -27,9 +51,11 @@ html, body {
     justify-content: center;
     align-items: center;
 
-    font-size: 48px;
+    font-size: 42px;
 
-    background-color: red;
+    color: var(--color-text);
+    text-transform: uppercase;
+    background-color: var(--color-foreground-dark);
 }
 
 .main-container {
@@ -38,18 +64,33 @@ html, body {
 
 .controls-container {
     width: 100%;
-    
+    height: 96px;
+
     display: flex;
     justify-content: center;
+    align-items: center;
+    gap: 10px;
 
-    background-color: green;
+    background-color: transparent;
 }
 
 .control-button {
-    width: 128px;
+    width: 184px;
     height: 64px;
 
     font-size: 24px;
+    background-color: var(--color-foreground-dark);
+    color: var(--color-text);
+    border: none;
+    border-radius: 8px;
+
+    -webkit-box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.75);
+}
+
+.control-button:hover {
+    border: 4px solid white;
 }
 
 .game-container {
@@ -74,7 +115,7 @@ html, body {
     align-items: center;
     justify-content: center;
 
-    background-color: purple;
+    background-color: var(--color-foreground-light);
 
     font-size: 32px;
 }
@@ -93,18 +134,32 @@ html, body {
 .gameboard > div {
     border-radius: 4px;
     background-color: white;
+
+    transition: background-color 0.5s ease;
 }
 
-.gameboard > div.ship {
+.gameboard > div.ship-5 {
     background-color: black;
 }
 
+.gameboard > div.ship-4 {
+    background-color: rgb(27, 27, 27);
+}
+
+.gameboard > div.ship-3 {
+    background-color: rgb(34, 34, 34);
+}
+
+.gameboard > div.ship-2 {
+    background-color: rgb(53, 53, 53);
+}
+
 .gameboard > div.hit {
-    background-color: green;
+    background-color: red;
 }
 
 .gameboard > div.miss {
-    background-color: red;
+    background-color: rgb(68, 133, 138);
 }
 
 .hidden {

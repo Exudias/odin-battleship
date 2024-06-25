@@ -44,7 +44,7 @@ class DomManager
                 }
                 else if (boardGrid[i][j] instanceof Ship && !isEnemy)
                 {
-                    grid.children[gridIndex].className = "ship";
+                    grid.children[gridIndex].className = "ship-" + boardGrid[i][j].length;
                 }
                 else if (boardGrid[i][j] === "H")
                 {
